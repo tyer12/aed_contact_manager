@@ -67,13 +67,13 @@ class TestContactManager(unittest.TestCase):
         self.assertFalse(self.cm.is_valid_phone_number(""))
         self.assertFalse(self.cm.is_valid_phone_number("9999999999"))
 
-    def test_find_contact(self):
+    def test_find_contacts(self):
         self.add_contact()
-        contacts = self.cm.find_contact("alice")
+        contacts = self.cm.find_contacts("alice")
         self.assertListEqual(contacts, [])
-        contacts = self.cm.find_contact("o")
+        contacts = self.cm.find_contacts("o")
         self.assertListEqual(contacts, [self.contact])
-        contacts = self.cm.find_contact("")
+        contacts = self.cm.find_contacts("")
         self.assertListEqual(contacts, [self.contact])
 
 if __name__ == "__main__":

@@ -42,7 +42,7 @@ class ContactManager:
         contact = self.get_contact(name)
         contact.set_phone_number(phone_number)
 
-    def find_contact(self, name_pattern):
+    def find_contacts(self, name_pattern):
         result = []
         for contact in self.get_contacts():
             if name_pattern in contact.get_name():
