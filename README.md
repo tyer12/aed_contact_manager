@@ -1,4 +1,4 @@
-![Python application](https://github.com/amgs/aed_contact_manager/workflows/Python%20application/badge.svg)
+![Python application](https://github.com/amgs/aed_contact_manager/workflows/Tests/badge.svg)
 
 # Contact Manager
 
