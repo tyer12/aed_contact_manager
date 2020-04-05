@@ -134,3 +134,7 @@ List contacts whose names match the given pattern.
   - Failure:
 
         No contacts available.
+
+# Créditos
+
+AED DCT UAL &copy; 2020
