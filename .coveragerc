@@ -1,0 +1,9 @@
+[run]
+omit = 
+    tests/*
+    */__init__.py
+    tasks.py
+    program.py
+source = 
+    views/
+    .
