@@ -11,7 +11,7 @@ class TestContactManager(unittest.TestCase):
         self.cm.contacts.append(self.contact)
     
     def test_has_contacts(self):
-        self.assertTrue(self.cm.has_contacts())
+        self.assertFalse(self.cm.has_contacts())
         self.add_contact()
         self.assertTrue(self.cm.has_contacts())
     
