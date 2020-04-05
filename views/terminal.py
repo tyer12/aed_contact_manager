@@ -23,8 +23,7 @@ class Terminal:
                 else:
                     controller.create_contact(name, email_address, phone_number)
                     print("Contact successfully created.")
-
-
+            
             elif commands[0] == "ECE":
                 name = commands[1]
                 email_address = input()

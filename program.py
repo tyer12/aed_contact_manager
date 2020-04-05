@@ -1,4 +1,4 @@
-from views import Terminal
+from views.terminal import Terminal
 
 if __name__ == "__main__":
     terminal = Terminal()
