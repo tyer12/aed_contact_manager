@@ -1,3 +1,5 @@
+![Python application](https://github.com/amgs/aed_contact_manager/workflows/Python%20application/badge.svg)
+
 # Contact Manager
 
 This application is a case study for the development of a GUI with Python 3.
