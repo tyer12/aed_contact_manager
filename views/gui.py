@@ -106,7 +106,7 @@ class ContactManagerGUI:
             messagebox.showwarning("Invalid", "Invalid email!")
             parent.deiconify()
 
-    def btn_remove_contact_action(self,name):
+    def btn_remove_contact_action(self):
         selected_name = self.listbox.get(ACTIVE)
         contact = self.cm.get_contact(selected_name)
         if contact is not None:
