@@ -1,5 +1,6 @@
 from controllers import ContactManager
 from tkinter import *
+from tkinter import messagebox
 from tkinter.scrolledtext import ScrolledText
 
 class ContactManagerGUI:
@@ -33,8 +34,8 @@ class ContactManagerGUI:
         frm_buttons.grid(sticky=W, column=0, row=1)
         btn_add_contact = Button(frm_buttons, text="Add contact", command=self.btn_add_contact_action)
         btn_add_contact.pack(side=LEFT)
-        btn_remove_contact = Button(frm_buttons, text="Remove contact", command=self.btn_remove_contact_remove_action)
-        btn_remove_contact.pack(side=LEFT)
+        btn_add_contact = Button(frm_buttons, text="Remove contact", command=self.btn_remove_contact_action)
+        btn_add_contact.pack(side=LEFT)
 
         frm_find = Frame(frm_buttons)
         frm_find.pack(side=RIGHT)
@@ -93,16 +94,24 @@ class ContactManagerGUI:
         name = self.add_contact_name.get()
         email_address = self.add_contact_email_address.get()
         phone_number = self.add_contact_phone_number.get()
-        self.cm.create_contact(name, email_address, phone_number)
-        self.populate_list()
-        parent.destroy()
+        if self.cm.is_valid_email_address(email_address) == True:
+            if self.cm.is_valid_phone_number(phone_number) == True:
+                self.cm.create_contact(name, email_address, phone_number)
+                self.populate_list()
+                parent.destroy()
+            else:
+                messagebox.showwarning("Invalid", "Invalid phone number!")
+                parent.deiconify()
+        else:
+            messagebox.showwarning("Invalid", "Invalid email!")
+            parent.deiconify()
 
-
-    def btn_remove_contact_remove_action(self):
+    def btn_remove_contact_action(self,name):
         selected_name = self.listbox.get(ACTIVE)
         contact = self.cm.get_contact(selected_name)
-        self.cm.delete_contact(contact.get_name())
-        self.populate_list()
+        if contact is not None:
+            self.cm.delete_contact(contact.get_name())
+            self.populate_list()
 
     def btn_find_contacts_action(self, name):
         contacts = self.cm.find_contacts(name)
