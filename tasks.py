@@ -10,6 +10,11 @@ def cov(c):
     c.run("coverage html")
 
 @task
+def sync(c):
+    c.run("git fetch upstream")
+    c.run("git merge upstream/master")
+
+@task
 def gui(c):
     c.run("python program.py gui")
 

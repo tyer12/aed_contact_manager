@@ -9,7 +9,7 @@ class TestContactManager(unittest.TestCase):
     
     def add_contact(self):
         self.cm.contacts.append(self.contact)
-    
+
     def test_has_contacts(self):
         self.assertFalse(self.cm.has_contacts())
         self.add_contact()
