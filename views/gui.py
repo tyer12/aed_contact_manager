@@ -33,6 +33,8 @@ class ContactManagerGUI:
         frm_buttons.grid(sticky=W, column=0, row=1)
         btn_add_contact = Button(frm_buttons, text="Add contact", command=self.btn_add_contact_action)
         btn_add_contact.pack(side=LEFT)
+        btn_remove_contact = Button(frm_buttons, text="Remove contact", command=self.btn_remove_contact_remove_action)
+        btn_remove_contact.pack(side=LEFT)
 
         frm_find = Frame(frm_buttons)
         frm_find.pack(side=RIGHT)
@@ -94,6 +96,13 @@ class ContactManagerGUI:
         self.cm.create_contact(name, email_address, phone_number)
         self.populate_list()
         parent.destroy()
+
+
+    def btn_remove_contact_remove_action(self):
+        selected_name = self.listbox.get(ACTIVE)
+        contact = self.cm.get_contact(selected_name)
+        self.cm.delete_contact(contact.get_name())
+        self.populate_list()
 
     def btn_find_contacts_action(self, name):
         contacts = self.cm.find_contacts(name)
